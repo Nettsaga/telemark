@@ -8,6 +8,8 @@ import Layout from "./components/layout/Layout";
 import ScrollToTop from "./components/ScrollToTop";
 import Index from "./pages/Index";
 import Products from "./pages/Products";
+import ProductDetail from "./pages/ProductDetail";
+import BoatEngines from "./pages/BoatEngines";
 import TDPower from "./pages/products/TDPower";
 import HyundaiSeasAll from "./pages/products/HyundaiSeasAll";
 import Aquamot from "./pages/products/Aquamot";
@@ -30,6 +32,8 @@ const App = () => (
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/produkter" element={<Products />} />
+              <Route path="/produkt/:productId" element={<ProductDetail />} />
+              <Route path="/batmotorer" element={<BoatEngines />} />
               <Route path="/produkter/td-power" element={<TDPower />} />
               <Route path="/produkter/hyundai-seasall" element={<HyundaiSeasAll />} />
               <Route path="/produkter/aquamot" element={<Aquamot />} />

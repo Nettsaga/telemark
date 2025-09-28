@@ -24,7 +24,7 @@ const Prices = () => {
       <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/prices.jpg"
+            src="/wheelloader2.avif"
             alt="Telemark Trade prisliste"
             className="w-full h-full object-cover"
           />

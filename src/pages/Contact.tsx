@@ -80,7 +80,7 @@ const Contact = () => {
       <section className="relative min-h-[70vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="/contacts.jpg"
+            src="/kontakt.avif"
             alt="Telemark Trade kontakt"
             className="w-full h-full object-cover"
           />

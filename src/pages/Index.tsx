@@ -11,20 +11,21 @@ import StaggerItem from "@/components/animations/StaggerItem";
 import ScaleIn from "@/components/animations/ScaleIn";
 import SEOHead from "@/components/seo/SEOHead";
 import { getOrganizationStructuredData } from "@/components/seo/StructuredData";
+import { featuredProducts, formatPrice } from "@/data/products";
 
 const Index = () => {
   return (
     <div className="bg-zinc-50 text-slate-900">
       <SEOHead
         title="Hjem"
-        description="Telemark Trade leverer båtmotorer og anleggsmaskiner som holder i alle værforhold. Kvalitet, service og erfaring siden 2000."
+        description="Telemark Trade - Norges ledende leverandør av hjullastere, anleggsmaskiner og båtmotorer. Kvalitet, service og erfaring siden 2000."
         structuredData={getOrganizationStructuredData()}
       />
       
       <section className="relative isolate overflow-hidden h-screen">
         <img
-          src="/home/hero-bg.jpg"
-          alt="Marine motor klar til installasjon"
+          src="/hero1.avif"
+          alt="Hjullaster i arbeid"
           className="absolute inset-0 h-full w-full object-cover"
         />
         <div className="absolute inset-0 bg-black/50" />
@@ -37,13 +38,13 @@ const Index = () => {
             </FadeInUp>
             <FadeInUp delay={0.6}>
               <h1 className="text-5xl font-semibold leading-tight text-white">
-              Salg og import av båtmotorer, anleggsmaskiner og utstyr
+              Hjullastere, anleggsmaskiner og båtmotorer
               </h1>
             </FadeInUp>
             <FadeInUp delay={0.8}>
               <p className="max-w-xl text-base text-zinc-100/80 sm:text-lg">
-                Telemark Trade leverer båtmotorer og anleggsmaskiner som holder i alle værforhold. 
-                Kvalitet, service og erfaring siden 2000.
+                Telemark Trade leverer hjullastere, anleggsmaskiner og båtmotorer som holder i alle værforhold.
+                Fokus på hjullastere og anleggsmaskiner - kvalitet, service og erfaring siden 2000.
               </p>
             </FadeInUp>
             <FadeInUp delay={1.0}>
@@ -67,10 +68,10 @@ const Index = () => {
             <div className="space-y-12">
               <FadeInUp delay={0.4}>
                 <div className="max-w-3xl">
-                  <h2 className="text-3xl font-semibold sm:text-4xl">Din pålitelige partner for maskiner og utstyr.</h2>
+                  <h2 className="text-3xl font-semibold sm:text-4xl">Din pålitelige partner for hjullastere og anleggsmaskiner.</h2>
                   <p className="mt-6 text-base text-slate-600 sm:text-lg">
-                    Vi leverer båtmotorer, elektriske motorer, hjullastere og anleggsmaskiner til kunder over hele Norge. 
-                    Lokalisert i Bø i Telemark.
+                    Vi leverer hjullastere, anleggsmaskiner, aggregater og båtmotorer til kunder over hele Norge.
+                    Hovedfokus på Everun hjullastere og tilbehør. Lokalisert i Bø i Telemark.
                   </p>
                 </div>
               </FadeInUp>
@@ -79,20 +80,20 @@ const Index = () => {
                 <StaggerItem>
                   <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
                     <div className="aspect-[2/1] overflow-hidden">
-                      <img 
-                        src="/services/td-power.jpg" 
-                        alt="TD POWER båtmotorer" 
+                      <img
+                        src="/services/wheel.jpg"
+                        alt="EVERUN hjullastere og anleggsmaskiner"
                         className="h-full w-full object-cover transition-transform group-hover:scale-105"
                       />
                     </div>
                     <div className="p-6">
                       <div className="mb-2">
-                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">TD POWER</span>
+                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">EVERUN HJULLASTERE</span>
                       </div>
-                      <h3 className="mb-3 text-xl font-semibold">Pålitelige båtmotorer</h3>
-                      
-                      <Link to="/produkter/td-power" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                        Les mer om TD POWER →
+                      <h3 className="mb-3 text-xl font-semibold">Kraftige hjullastere</h3>
+
+                      <Link to="/produkter?category=wheel-loaders" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
+                        Se alle hjullastere →
                       </Link>
                     </div>
                   </div>
@@ -101,64 +102,20 @@ const Index = () => {
                 <StaggerItem>
                   <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
                     <div className="aspect-[2/1] overflow-hidden">
-                      <img 
-                        src="/services/seasall.jpg" 
-                        alt="HYUNDAI SEASALL elektriske motorer" 
+                      <img
+                        src="/extension/1.avif"
+                        alt="Aggregater og tilbehør"
                         className="h-full w-full object-cover transition-transform group-hover:scale-105"
                       />
                     </div>
                     <div className="p-6">
                       <div className="mb-2">
-                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">HYUNDAI SEASALL</span>
+                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">AGGREGATER</span>
                       </div>
-                      <h3 className="mb-3 text-xl font-semibold">Moderne elektriske motorer</h3>
-                     
-                      <Link to="/produkter/hyundai-seasall" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                        Les mer om HYUNDAI SEASALL →
-                      </Link>
-                    </div>
-                  </div>
-                </StaggerItem>
+                      <h3 className="mb-3 text-xl font-semibold">Dieselaggregater & tilbehør</h3>
 
-                <StaggerItem>
-                  <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
-                    <div className="aspect-[2/1] overflow-hidden">
-                      <img 
-                        src="/services/aquamot.webp" 
-                        alt="AQUAMOT elektriske motorer" 
-                        className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="mb-2">
-                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">AQUAMOT</span>
-                      </div>
-                      <h3 className="mb-3 text-xl font-semibold">Elektriske motorer for alle behov</h3>
-                     
-                      <Link to="/produkter/aquamot" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                        Les mer om AQUAMOT →
-                      </Link>
-                    </div>
-                  </div>
-                </StaggerItem>
-
-                <StaggerItem>
-                  <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
-                    <div className="aspect-[2/1] overflow-hidden">
-                      <img  
-                        src="/services/wheel.jpg" 
-                        alt="EVERUN hjullastere og anleggsmaskiner" 
-                        className="h-full w-full object-cover transition-transform group-hover:scale-105"
-                      />
-                    </div>
-                    <div className="p-6">
-                      <div className="mb-2">
-                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">EVERUN WHEEL LOADERS</span>
-                      </div>
-                      <h3 className="mb-3 text-xl font-semibold">Kraftige hjullastere og anleggsmaskiner</h3>
-                     
-                      <Link to="/everun-hjullastere" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                        Les mer om EVERUN WHEEL LOADERS →
+                      <Link to="/produkter?category=aggregates" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
+                        Se alle aggregater →
                       </Link>
                     </div>
                   </div>
@@ -166,12 +123,47 @@ const Index = () => {
               </StaggerContainer>
 
               <FadeInUp delay={0.6}>
+                <div className="mb-12">
+                  <h3 className="text-2xl font-semibold text-slate-900 mb-6 text-center">Utvalgte hjullastere</h3>
+                  <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+                    {featuredProducts.slice(0, 3).map((product) => (
+                      <div key={product.id} className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
+                        <div className="aspect-[4/3] overflow-hidden">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            className="h-full w-full object-cover transition-transform group-hover:scale-105"
+                          />
+                        </div>
+                        <div className="p-4">
+                          <div className="mb-2">
+                            <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">{product.year}</span>
+                          </div>
+                          <h4 className="mb-2 text-lg font-semibold">{product.name}</h4>
+                          <p className="text-slate-600 mb-3 text-sm">{product.description}</p>
+                          <div className="flex items-center justify-between">
+                            <span className="text-xl font-bold text-[#19334c]">{formatPrice(product.price)}</span>
+                            <Link
+                              to={`/produkt/${product.id}`}
+                              className="text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors"
+                            >
+                              Se detaljer →
+                            </Link>
+                          </div>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </FadeInUp>
+
+              <FadeInUp delay={0.8}>
                 <div className="relative overflow-hidden rounded-3xl border border-[#19334c]/20 bg-[#19334c]/5 p-10 shadow-sm">
                   <div className="">
-                    <h3 className="text-xl font-semibold text-slate-900 mb-3">Vårt utvalg av motorer</h3>
+                    <h3 className="text-xl font-semibold text-slate-900 mb-3">Spesialist på hjullastere og anleggsmaskiner</h3>
                     <p className="text-base text-slate-700 mb-4">
-                      Vi har modeller på lager fra <span className="font-semibold text-[#19334c]">15 til 270 HK</span>. 
-                      Større modeller er tilgjengelige på forespørsel (fra 380-700 HK).
+                      Everun hjullastere fra <span className="font-semibold text-[#19334c]">99 900 til 249 900 kr</span>.
+                      Elektriske og dieselmodeller tilgjengelig. Aggregater fra 44 900 kr.
                     </p>
                   </div>
                   <p className="mt-6 text-xs uppercase tracking-[0.45em] text-[#19334c]">Telemark Trade AS</p>

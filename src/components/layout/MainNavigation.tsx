@@ -83,9 +83,10 @@ const MainNavigation = () => {
       path: "/produkter",
       hasDropdown: true,
       dropdownItems: [
-        { name: "TD Power", path: "/produkter/td-power" },
-        { name: "Hyundai SeasAll", path: "/produkter/hyundai-seasall" },
-        { name: "Aquamot", path: "/produkter/aquamot" }
+        { name: "Alle produkter", path: "/produkter" },
+        { name: "Hjullastere", path: "/produkter?category=wheel-loaders" },
+        { name: "Aggregater & Tilbehør", path: "/produkter?category=aggregates" },
+        { name: "Båtmotorer", path: "/batmotorer" }
       ]
     },
     { name: "Everun Hjullastere", path: "/everun-hjullastere" },
@@ -155,7 +156,14 @@ const MainNavigation = () => {
         <div className="flex items-center h-16">
           {/* Logo - Left side */}
           <Link to="/" className="flex items-center space-x-2">
-            <img src="/logo.jpg" alt="Telemark Trade AS" className="h-14 w-auto" />
+            <img
+              src="/logo.avif"
+              alt="Telemark Trade AS"
+              className={cn(
+                "h-14 w-auto transition-all duration-300",
+                !scrolled && "filter brightness-0 invert"
+              )}
+            />
           </Link>
 
           {/* Navigation Links - Centered */}

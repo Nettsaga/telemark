@@ -1,11 +1,11 @@
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const Footer = () => {
   return (
     <footer className="bg-primary text-primary-foreground py-12">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Company Info */}
           <div className="space-y-4">
             <h3 className="text-xl font-bold">Telemark Trade AS</h3>
@@ -16,15 +16,15 @@ const Footer = () => {
             <div className="space-y-2 text-sm">
               <div className="flex items-center space-x-2">
                 <Phone className="h-4 w-4" />
-                <span>+47 35 95 25 00</span>
+                <span>900 33 402</span>
               </div>
               <div className="flex items-center space-x-2">
                 <Mail className="h-4 w-4" />
-                <span>post@telemark-trade.no</span>
+                <span>klas.grave@telemark-trade.no</span>
               </div>
               <div className="flex items-center space-x-2">
                 <MapPin className="h-4 w-4" />
-                <span>Telemark, Norge</span>
+                <span>Gravevegen 64, 3803 BØ I TELEMARK</span>
               </div>
             </div>
           </div>
@@ -67,20 +67,6 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Opening Hours */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold">Åpningstider</h4>
-            <div className="space-y-2 text-sm">
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4" />
-                <div>
-                  <div>Man-Fre: 08:00-16:00</div>
-                  <div>Lør: 10:00-14:00</div>
-                  <div>Søn: Stengt</div>
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
 
         <div className="border-t border-primary-foreground/20 mt-8 pt-8 text-center text-sm opacity-75">
