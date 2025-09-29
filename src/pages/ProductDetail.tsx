@@ -33,6 +33,20 @@ const ProductDetail = () => {
 
   const specifications = product.specifications || {};
 
+  // Translation function for specification keys
+  const translateSpecKey = (key: string): string => {
+    const translations: Record<string, string> = {
+      'power': 'Effekt',
+      'weight': 'Vekt',
+      'fuel': 'Drivstoff',
+      'engine': 'Motor',
+      'capacity': 'Kapasitet',
+      'year': 'År',
+      'model': 'Modell'
+    };
+    return translations[key.toLowerCase()] || key.charAt(0).toUpperCase() + key.slice(1);
+  };
+
   return (
     <div>
       <SEOHead
@@ -126,7 +140,7 @@ const ProductDetail = () => {
                     {Object.entries(specifications).map(([key, value]) => (
                       <div key={key} className="border-b border-slate-200 pb-4">
                         <dt className="text-sm font-medium text-slate-500 uppercase tracking-wider mb-1">
-                          {key.charAt(0).toUpperCase() + key.slice(1)}
+                          {translateSpecKey(key)}
                         </dt>
                         <dd className="text-lg font-semibold text-slate-900">{value}</dd>
                       </div>

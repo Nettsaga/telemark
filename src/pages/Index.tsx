@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
 import heroMarineEngines from "@/assets/hero-marine-engines.jpg";
 import heroWorkshop from "@/assets/hero-workshop.jpg";
 import heroConstruction from "@/assets/hero-construction.jpg";
@@ -14,6 +15,17 @@ import { getOrganizationStructuredData } from "@/components/seo/StructuredData";
 import { featuredProducts, formatPrice } from "@/data/products";
 
 const Index = () => {
+  const heroImages = ["/hero2.avif", "/hero3.avif"];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % heroImages.length);
+    }, 5000); // Change image every 5 seconds
+
+    return () => clearInterval(interval);
+  }, [heroImages.length]);
+
   return (
     <div className="bg-zinc-50 text-slate-900">
       <SEOHead
@@ -23,11 +35,16 @@ const Index = () => {
       />
       
       <section className="relative isolate overflow-hidden h-screen">
-        <img
-          src="/hero1.avif"
-          alt="Hjullaster i arbeid"
-          className="absolute inset-0 h-full w-full object-cover"
-        />
+        {heroImages.map((image, index) => (
+          <img
+            key={image}
+            src={image}
+            alt="Hjullaster i arbeid"
+            className={`absolute inset-0 h-full w-full object-cover transition-opacity duration-1000 ${
+              index === currentImageIndex ? "opacity-100" : "opacity-0"
+            }`}
+          />
+        ))}
         <div className="absolute inset-0 bg-black/50" />
         <div className="container relative mx-auto grid min-h-[calc(100vh-42px)] gap-16 px-4 pb-20 pt-40 lg:grid-cols-[1.1fr,0.9fr] lg:items-center lg:px-10">
           <FadeInLeft delay={0.2} className="space-y-10 text-slate-100">
