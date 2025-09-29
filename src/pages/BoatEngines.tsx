@@ -71,26 +71,6 @@ const BoatEngines = () => {
         </FadeInUp>
       </section>
 
-      {/* Important Notice */}
-      <section className="py-12 bg-amber-50 border-b border-amber-200">
-        <div className="container mx-auto px-4 lg:px-10">
-          <FadeInUp delay={0.2} className="text-center max-w-3xl mx-auto">
-            <h2 className="text-2xl font-bold text-slate-900 mb-4">Fokus på hjullastere og anleggsmaskiner</h2>
-            <p className="text-slate-700 leading-relaxed">
-              Mens vi fortsatt tilbyr båtmotorer, har vi flyttet fokuset vårt til hjullastere og anleggsmaskiner
-              hvor vi ser størst etterspørsel. For båtmotorer anbefaler vi å kontakte oss direkt for tilgjengelighet og priser.
-            </p>
-            <div className="mt-6">
-              <Button asChild className="bg-amber-600 text-white hover:bg-amber-700 mr-4">
-                <Link to="/produkter?category=wheel-loaders">Se hjullastere</Link>
-              </Button>
-              <Button asChild variant="outline" className="border-amber-600 text-amber-600 hover:bg-amber-50">
-                <Link to="/kontakt">Kontakt for båtmotorer</Link>
-              </Button>
-            </div>
-          </FadeInUp>
-        </div>
-      </section>
 
       {/* Boat Engine Types */}
       <section className="py-20 bg-white">
@@ -123,20 +103,12 @@ const BoatEngines = () => {
                     <p className="text-slate-600 mb-4 text-sm leading-relaxed">
                       {engine.description}
                     </p>
-                    <div className="flex flex-col gap-3">
-                      <Link
-                        to={engine.link}
-                        className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors"
-                      >
-                        Les mer om {engine.title} →
-                      </Link>
-                      <Link
-                        to="/kontakt"
-                        className="inline-flex items-center justify-center px-4 py-2 bg-slate-100 text-slate-700 hover:bg-slate-200 rounded-lg text-sm font-medium transition-colors"
-                      >
-                        Forespørsel om pris
-                      </Link>
-                    </div>
+                    <Link
+                      to={engine.link}
+                      className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors"
+                    >
+                      Les mer om {engine.title} →
+                    </Link>
                   </div>
                 </div>
               </StaggerItem>

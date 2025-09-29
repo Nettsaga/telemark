@@ -85,11 +85,13 @@ const MainNavigation = () => {
       dropdownItems: [
         { name: "Alle produkter", path: "/produkter" },
         { name: "Hjullastere", path: "/produkter?category=wheel-loaders" },
-        { name: "Aggregater & Tilbehør", path: "/produkter?category=aggregates" },
-        { name: "Båtmotorer", path: "/batmotorer" }
+        { name: "Aggregater", path: "/produkter?category=aggregates" },
+        { name: "Tilbehør", path: "/produkter?category=accessories" },
+        { name: "Båtmotorer", path: "/produkter?category=boat-engines" }
       ]
     },
     { name: "Everun Hjullastere", path: "/everun-hjullastere" },
+    { name: "Båtmotorer", path: "/batmotorer" },
     { name: "Priser", path: "/priser" },
     { name: "Kontakt", path: "/kontakt" }
   ];
@@ -171,8 +173,8 @@ const MainNavigation = () => {
             {navItems.map((item) => (
               <div key={item.name} className="relative">
                 {item.hasDropdown ? (
-                  <div 
-                    ref={dropdownRef} 
+                  <div
+                    ref={dropdownRef}
                     className="relative"
                     onMouseEnter={handleDropdownEnter}
                     onMouseLeave={handleDropdownLeave}
@@ -193,9 +195,9 @@ const MainNavigation = () => {
                     {showProductsDropdown && (
                       <div className={dropdownWrapperClasses}>
                         {item.dropdownItems?.map((dropdownItem) => (
-                          <Link 
-                            key={dropdownItem.name} 
-                            to={dropdownItem.path} 
+                          <Link
+                            key={dropdownItem.name}
+                            to={dropdownItem.path}
                             className={dropdownItemClasses(dropdownItem.path)}
                             onClick={() => setShowProductsDropdown(false)}
                           >
@@ -222,8 +224,8 @@ const MainNavigation = () => {
               rel="noopener noreferrer"
               className={cn(
                 "p-2 rounded-md transition-colors",
-                scrolled 
-                  ? "text-slate-900 hover:text-blue-600 hover:bg-blue-50" 
+                scrolled
+                  ? "text-slate-900 hover:text-blue-600 hover:bg-blue-50"
                   : "text-zinc-100 hover:text-blue-300 hover:bg-white/10"
               )}
               title="Følg oss på Facebook"
@@ -289,8 +291,8 @@ const MainNavigation = () => {
               rel="noopener noreferrer"
               className={cn(
                 "flex items-center justify-center p-3 rounded-md transition-colors",
-                scrolled 
-                  ? "text-slate-900 hover:text-blue-600 hover:bg-blue-50" 
+                scrolled
+                  ? "text-slate-900 hover:text-blue-600 hover:bg-blue-50"
                   : "text-zinc-100 hover:text-blue-300 hover:bg-white/10"
               )}
               title="Følg oss på Facebook"

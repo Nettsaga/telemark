@@ -42,7 +42,41 @@ const ProductDetail = () => {
       'engine': 'Motor',
       'capacity': 'Kapasitet',
       'year': 'År',
-      'model': 'Modell'
+      'model': 'Modell',
+      'liftCapacity': 'Løftekapasitet',
+      'liftHeight': 'Løftehøyde',
+      'topSpeed': 'Topphastighet',
+      'gearbox': 'Girkasse',
+      'chassis': 'Understell',
+      'cabinType': 'Førerhustype',
+      'workingHours': 'Arbeidstimer',
+      'additionalHydraulics': 'Tilleggshydraulikk',
+      'ceMark': 'CE-merket',
+      'complianceDeclaration': 'Samsvarserklæring',
+      'maintenanceContract': 'Vedlikeholdsavtale',
+      'annualFee': 'Årsavgift',
+      'primeKVA': 'Prime KVA',
+      'standbyKVA': 'Standby KVA',
+      'primeAmpere': 'Prime Ampere',
+      'standbyAmpere': 'Standby Ampere',
+      'voltage': 'Spenning',
+      'phase': 'Fase',
+      'frequency': 'Frekvens',
+      'rpm': 'Turtall',
+      'fuelTank': 'Drivstofftank',
+      'dimensions': 'Dimensjoner',
+      'starter': 'Starter',
+      'condition': 'Tilstand',
+      'brand': 'Merke',
+      'motorType': 'Motortype',
+      'cooling': 'Kjøling',
+      'certification': 'Sertifisering',
+      'warranty': 'Garanti',
+      'hydraulics': 'Hydraulikk',
+      'floatSystem': 'Flytsystem',
+      'springs': 'Fjærer',
+      'bracket': 'Brakett',
+      'edge': 'Slitestål'
     };
     return translations[key.toLowerCase()] || key.charAt(0).toUpperCase() + key.slice(1);
   };
@@ -70,21 +104,23 @@ const ProductDetail = () => {
                   </h1>
                 </div>
 
-                <div className="flex items-center gap-6">
+                <div>
                   <span className="text-3xl lg:text-4xl font-bold text-amber-400">
                     {formatPrice(product.price)}
                   </span>
-                  {product.inStock && (
-                    <span className="inline-flex items-center gap-2 bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-medium">
-                      <Check className="h-4 w-4" />
-                      På lager
-                    </span>
-                  )}
                 </div>
 
                 <p className="text-white/90 text-lg leading-relaxed">
                   {product.description}
                 </p>
+
+                {product.deliveryInfo && (
+                  <div className="bg-amber-500/20 border border-amber-400/50 rounded-lg p-4">
+                    <p className="text-amber-300 font-medium">
+                      {product.deliveryInfo}
+                    </p>
+                  </div>
+                )}
 
                 <div className="flex items-center gap-2 text-white/70">
                   <MapPin className="h-4 w-4" />
@@ -131,11 +167,135 @@ const ProductDetail = () => {
         <div className="container mx-auto px-4 lg:px-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
 
-            {/* Specifications */}
+            {/* Product Information and Specifications */}
             <FadeInLeft delay={0.2} className="lg:col-span-2">
               <div className="space-y-8">
                 <div>
-                  <h2 className="text-3xl font-bold text-slate-900 mb-6">Spesifikasjoner</h2>
+                  <h2 className="text-3xl font-bold text-slate-900 mb-6">Produktinformasjon</h2>
+                  <div className="prose prose-slate max-w-none mb-8">
+                    {product.longDescription ? (
+                      <div className="space-y-4">
+                        {product.longDescription.split('\n\n').map((paragraph, index) => (
+                          <p key={index} className="text-slate-600 leading-relaxed">
+                            {paragraph}
+                          </p>
+                        ))}
+                        {product.modelVariants && product.modelVariants.length > 0 && (
+                          <div className="mt-8">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Tilgjengelige modeller</h4>
+                            <div className="overflow-x-auto">
+                              <table className="min-w-full divide-y divide-gray-200">
+                                <thead className="bg-gray-50">
+                                  <tr>
+                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Modell</th>
+                                    {product.modelVariants[0]?.cylinders && (
+                                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Sylindre</th>
+                                    )}
+                                    {product.modelVariants[0]?.power && (
+                                      <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Effekt</th>
+                                    )}
+                                    <th className="px-4 py-2 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Pris</th>
+                                  </tr>
+                                </thead>
+                                <tbody className="bg-white divide-y divide-gray-200">
+                                  {product.modelVariants.map((variant, index) => (
+                                    <tr key={index}>
+                                      <td className="px-4 py-2 text-sm font-medium text-gray-900">{variant.model}</td>
+                                      {variant.cylinders && (
+                                        <td className="px-4 py-2 text-sm text-gray-500">{variant.cylinders}</td>
+                                      )}
+                                      {variant.power && (
+                                        <td className="px-4 py-2 text-sm text-gray-500">{variant.power}</td>
+                                      )}
+                                      <td className="px-4 py-2 text-sm font-semibold text-gray-900">{formatPrice(variant.price)}</td>
+                                    </tr>
+                                  ))}
+                                </tbody>
+                              </table>
+                            </div>
+                          </div>
+                        )}
+                        {product.standardEquipment && product.standardEquipment.length > 0 && (
+                          <div className="mt-8">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Standard utstyr</h4>
+                            <ul className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                              {product.standardEquipment.map((item, index) => (
+                                <li key={index} className="flex items-start gap-2">
+                                  <Check className="h-5 w-5 text-green-600 flex-shrink-0 mt-0.5" />
+                                  <span className="text-slate-600">{item}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {product.additionalOptions && product.additionalOptions.length > 0 && (
+                          <div className="mt-8">
+                            <h4 className="text-xl font-bold text-slate-900 mb-4">Tilleggsutstyr</h4>
+                            <ul className="space-y-2">
+                              {product.additionalOptions.map((option, index) => (
+                                <li key={index} className="flex items-start gap-2">
+                                  <span className="text-amber-600">•</span>
+                                  <span className="text-slate-600">{option}</span>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {product.memberInfo && (
+                          <div className="mt-8 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                            <div className="flex items-start gap-3">
+                              <div className="flex-shrink-0">
+                                <Check className="h-6 w-6 text-blue-600" />
+                              </div>
+                              <div>
+                                <h4 className="text-sm font-semibold text-blue-900 mb-1">Norboat medlem</h4>
+                                <p className="text-sm text-blue-800">{product.memberInfo}</p>
+                              </div>
+                            </div>
+                          </div>
+                        )}
+                        {product.websiteLinks && product.websiteLinks.length > 0 && (
+                          <div className="mt-8">
+                            <h4 className="text-lg font-bold text-slate-900 mb-3">Nyttige lenker</h4>
+                            <ul className="space-y-2">
+                              {product.websiteLinks.map((link, index) => (
+                                <li key={index}>
+                                  <a
+                                    href={link.startsWith('http') ? link : `https://${link}`}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-amber-600 hover:text-amber-700 underline text-sm"
+                                  >
+                                    {link}
+                                  </a>
+                                </li>
+                              ))}
+                            </ul>
+                          </div>
+                        )}
+                        {product.keywords && product.keywords.length > 0 && (
+                          <div className="mt-6 flex flex-wrap gap-2">
+                            {product.keywords.map((keyword, index) => (
+                              <span key={index} className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-slate-100 text-slate-700">
+                                {keyword}
+                              </span>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-slate-600 leading-relaxed">
+                        {product.description} Dette er en {product.category === 'wheel-loaders' ? 'pålitelig hjullaster' :
+                         product.category === 'aggregates' ? 'kraftig aggregat' : 'høykvalitets båtmotor'} som
+                        passer perfekt for {product.category === 'wheel-loaders' ? 'anleggsarbeider og materialtransport' :
+                         product.category === 'aggregates' ? 'strømforsyning på arbeidsplassen' : 'marine anvendelser'}.
+                      </p>
+                    )}
+                  </div>
+                </div>
+
+                <div>
+                  <h3 className="text-2xl font-bold text-slate-900 mb-6">Spesifikasjoner</h3>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     {Object.entries(specifications).map(([key, value]) => (
                       <div key={key} className="border-b border-slate-200 pb-4">
@@ -157,18 +317,6 @@ const ProductDetail = () => {
                       </dt>
                       <dd className="text-lg font-semibold text-slate-900">{product.year}</dd>
                     </div>
-                  </div>
-                </div>
-
-                <div>
-                  <h3 className="text-2xl font-bold text-slate-900 mb-4">Produktinformasjon</h3>
-                  <div className="prose prose-slate max-w-none">
-                    <p className="text-slate-600 leading-relaxed">
-                      {product.description} Dette er en {product.category === 'wheel-loaders' ? 'pålitelig hjullaster' :
-                       product.category === 'aggregates' ? 'kraftig aggregat' : 'høykvalitets båtmotor'} som
-                      passer perfekt for {product.category === 'wheel-loaders' ? 'anleggsarbeider og materialtransport' :
-                       product.category === 'aggregates' ? 'strømforsyning på arbeidsplassen' : 'marine anvendelser'}.
-                    </p>
                   </div>
                 </div>
               </div>
@@ -250,6 +398,13 @@ const ProductDetail = () => {
                       Forhandler: {product.dealer}<br />
                       Lokasjon: {product.location}
                     </p>
+                    {product.category === 'wheel-loaders' && (
+                      <div className="mt-4 p-3 bg-green-50 rounded-lg border border-green-200">
+                        <p className="text-sm text-green-800 font-medium text-center">
+                          Vi tilbyr finansiering
+                        </p>
+                      </div>
+                    )}
                   </div>
                 </div>
               </div>

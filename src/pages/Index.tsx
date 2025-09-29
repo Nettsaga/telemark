@@ -15,7 +15,7 @@ import { getOrganizationStructuredData } from "@/components/seo/StructuredData";
 import { featuredProducts, formatPrice } from "@/data/products";
 
 const Index = () => {
-  const heroImages = ["/hero2.avif", "/hero3.avif"];
+  const heroImages = ["/hero2.avif", "/hero3.avif", "/h3.avif", "/h.avif"];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -46,27 +46,36 @@ const Index = () => {
           />
         ))}
         <div className="absolute inset-0 bg-black/50" />
-        <div className="container relative mx-auto grid min-h-[calc(100vh-42px)] gap-16 px-4 pb-20 pt-40 lg:grid-cols-[1.1fr,0.9fr] lg:items-center lg:px-10">
-          <FadeInLeft delay={0.2} className="space-y-10 text-slate-100">
+        <div className="container relative mx-auto flex min-h-[calc(100vh-42px)] items-center justify-center px-4 pb-20 pt-40">
+          <div className="max-w-4xl text-center">
+            <FadeInUp delay={0.4}>
+              <img
+                src="/logo.avif"
+                alt="Telemark Trade Logo"
+                className="w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 mx-auto object-contain brightness-0 invert -mb-12 md:-mb-16 lg:-mb-20"
+              />
+            </FadeInUp>
             <FadeInUp delay={0.6}>
-              <h1 className="text-5xl font-semibold leading-tight text-white">
-              Hjullastere, anleggsmaskiner og båtmotorer
+              <h1 className="text-2xl md:text-3xl lg:text-4xl font-semibold leading-tight text-white mb-6">
+                Hjullastere, anleggsmaskiner og båtmotorer
               </h1>
             </FadeInUp>
             <FadeInUp delay={0.8}>
-              <p className="max-w-xl text-base text-zinc-100/80 sm:text-lg">
-                Telemark Trade leverer hjullastere, anleggsmaskiner og båtmotorer som holder i alle værforhold.
-                Fokus på hjullastere og anleggsmaskiner - kvalitet, service og erfaring siden 2000.
+              <p className="max-w-2xl mx-auto text-base text-zinc-100/80 sm:text-lg mb-8">
+                Kvalitet, service og erfaring siden 2000. Vi leverer maskiner som holder i alle værforhold.
               </p>
             </FadeInUp>
             <FadeInUp delay={1.0}>
-              <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-center mt-4">
                 <Button asChild size="lg" className="bg-amber-400 text-slate-900 hover:bg-amber-300">
+                  <Link to="/produkter">Se våre produkter</Link>
+                </Button>
+                <Button asChild size="lg" variant="outline" className="border-white !text-slate-900 bg-white hover:bg-transparent hover:!text-white">
                   <Link to="/kontakt">Kontakt oss</Link>
                 </Button>
               </div>
             </FadeInUp>
-          </FadeInLeft>
+          </div>
         </div>
       </section>
 
