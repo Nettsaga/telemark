@@ -15,7 +15,7 @@ import { getOrganizationStructuredData } from "@/components/seo/StructuredData";
 import { featuredProducts, formatPrice } from "@/data/products";
 
 const Index = () => {
-  const heroImages = ["/hero2.avif", "/hero3.avif", "/h3.avif", "/h.avif"];
+  const heroImages = ["/hero2.avif", "/h3.avif", "/h.avif"];
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
   useEffect(() => {
@@ -124,19 +124,19 @@ const Index = () => {
                   <div className="group relative overflow-hidden rounded-xl border border-zinc-200 bg-white shadow-sm transition-all hover:shadow-md">
                     <div className="aspect-[2/1] overflow-hidden">
                       <img
-                        src="/extension/1.avif"
-                        alt="Aggregater og tilbehør"
+                        src="/services/aquamot.webp"
+                        alt="Båtmotorer og marine motorer"
                         className="h-full w-full object-cover transition-transform group-hover:scale-105"
                       />
                     </div>
                     <div className="p-6">
                       <div className="mb-2">
-                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">AGGREGATER</span>
+                        <span className="text-xs font-medium uppercase tracking-[0.45em] text-amber-600">BÅTMOTORER</span>
                       </div>
-                      <h3 className="mb-3 text-xl font-semibold">Dieselaggregater & tilbehør</h3>
+                      <h3 className="mb-3 text-xl font-semibold">Marine motorer & tilbehør</h3>
 
-                      <Link to="/produkter?category=aggregates" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
-                        Se alle aggregater →
+                      <Link to="/batmotorer" className="inline-flex items-center text-amber-600 hover:text-amber-700 font-medium text-sm transition-colors">
+                        Se alle båtmotorer →
                       </Link>
                     </div>
                   </div>

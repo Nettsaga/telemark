@@ -15,7 +15,7 @@ const SEOHead = ({
   description,
   keywords = "båtmotorer, marine motorer, anleggsmaskiner, hjullastere, Telemark Trade, TD Power, Hyundai SeasAll, Aquamot, Everun",
   canonicalUrl,
-  ogImage = "/logo.jpg",
+  ogImage = "/hero2.avif",
   ogType = "website",
   structuredData
 }: SEOHeadProps) => {
