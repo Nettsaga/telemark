@@ -48,11 +48,6 @@ const Index = () => {
         <div className="absolute inset-0 bg-black/50" />
         <div className="container relative mx-auto grid min-h-[calc(100vh-42px)] gap-16 px-4 pb-20 pt-40 lg:grid-cols-[1.1fr,0.9fr] lg:items-center lg:px-10">
           <FadeInLeft delay={0.2} className="space-y-10 text-slate-100">
-            <FadeInUp delay={0.4}>
-              <span className="text-[0.7rem] uppercase tracking-[0.5em] text-amber-200/90">
-                North Sea Engine House
-              </span>
-            </FadeInUp>
             <FadeInUp delay={0.6}>
               <h1 className="text-5xl font-semibold leading-tight text-white">
               Hjullastere, anleggsmaskiner og båtmotorer
